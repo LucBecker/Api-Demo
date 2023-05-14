@@ -34,4 +34,14 @@ public class PessoaService {
     public ResponseEntity<?> selecionar(){
         return new ResponseEntity<>(acao.findAll(), HttpStatus.OK);
     }
+
+    // Método para selecionar pessooas pelo codigo
+    public ResponseEntity<?> selecionarPeloCodigo(int codigo){
+        if(acao.countByCodigo(codigo) == 0){
+            mensagem.setMensagem("Nao foi encontrada nenhuma pessoa");
+            return new ResponseEntity<>(mensagem, HttpStatus.BAD_REQUEST);
+        } else {
+            return new ResponseEntity<>(acao.findByCodigo(codigo), HttpStatus.OK);
+        }
+    }
 }
