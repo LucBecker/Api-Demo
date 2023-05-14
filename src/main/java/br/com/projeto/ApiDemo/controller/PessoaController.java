@@ -25,8 +25,8 @@ public class PessoaController {
     }
 
     @GetMapping("/api")
-    public List<Pessoa> selecionar(){
-        return acao.findAll();
+    public ResponseEntity<?> selecionar(){
+        return service.selecionar();
     }
 
     @GetMapping("/api/{codigo}")

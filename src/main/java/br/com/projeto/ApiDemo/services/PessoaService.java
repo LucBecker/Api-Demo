@@ -17,6 +17,7 @@ public class PessoaService {
     @Autowired
     private PessoaRepository acao;
 
+    // Método para cadastrar pessoas
     public ResponseEntity<?> cadastrar(Pessoa obj){
         if(obj.getNome().equals("")){
             mensagem.setMensagem("O nome precisa ser preeenchido");
@@ -27,5 +28,10 @@ public class PessoaService {
         } else {
             return new ResponseEntity<>(acao.save(obj), HttpStatus.CREATED);
         }
+    }
+
+    // Método para selecionar pessoas
+    public ResponseEntity<?> selecionar(){
+        return new ResponseEntity<>(acao.findAll(), HttpStatus.OK);
     }
 }
