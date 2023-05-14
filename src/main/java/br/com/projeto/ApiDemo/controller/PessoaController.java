@@ -3,6 +3,8 @@ package br.com.projeto.ApiDemo.controller;
 import br.com.projeto.ApiDemo.model.Pessoa;
 import br.com.projeto.ApiDemo.repositories.PessoaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
