@@ -2,6 +2,7 @@ package br.com.projeto.ApiDemo.controller;
 
 import br.com.projeto.ApiDemo.model.Pessoa;
 import br.com.projeto.ApiDemo.repositories.PessoaRepository;
+import br.com.projeto.ApiDemo.services.PessoaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,9 +16,12 @@ public class PessoaController {
     @Autowired
     private PessoaRepository acao;
 
+    @Autowired
+    private PessoaService service;
+
     @PostMapping("/api")
-    public Pessoa cadastrar(@RequestBody Pessoa obj){
-        return acao.save(obj);
+    public ResponseEntity<?> cadastrar(@RequestBody Pessoa obj){
+        return service.cadastrar(obj);
     }
 
     @GetMapping("/api")
