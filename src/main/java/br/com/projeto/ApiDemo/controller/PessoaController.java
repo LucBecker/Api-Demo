@@ -35,8 +35,8 @@ public class PessoaController {
     }
 
     @PutMapping("/api")
-    public Pessoa editar(@RequestBody Pessoa obj){
-        return acao.save(obj);
+    public ResponseEntity<?> editar(@RequestBody Pessoa obj){
+        return service.editar(obj);
     }
 
     @DeleteMapping("/api/{codigo}")
