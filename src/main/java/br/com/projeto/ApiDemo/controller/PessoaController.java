@@ -1,13 +1,14 @@
 package br.com.projeto.ApiDemo.controller;
 
+import br.com.projeto.ApiDemo.model.Cliente;
 import br.com.projeto.ApiDemo.model.Pessoa;
 import br.com.projeto.ApiDemo.repositories.PessoaRepository;
 import br.com.projeto.ApiDemo.services.PessoaService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -82,6 +83,11 @@ public class PessoaController {
     @GetMapping("/api/idadeMaiorIgual")
     public List<Pessoa> idadeMaiorIgual(){
         return acao.idadeMaiorIgual(18);
+    }
+
+    @PostMapping("/cliente")
+    public void cliente(@Valid @RequestBody Cliente obj){
+
     }
 
     @GetMapping("/boasVindas/{nome}")
